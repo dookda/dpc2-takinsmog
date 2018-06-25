@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>รายงานสถานการณ์หมอกควัน</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+        crossorigin=""></script>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Athiti|Kanit|Pattaya|Sriracha|Anton:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="css/app.css" id="theme" rel="stylesheet">
+</head>
+
+<body class="fix-header">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="index.html">
+                        <b>
+                            <img src="../plugins/images/admin-logo.png" alt="home" class="dark-logo" />
+                            <img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        </b>
+                        <span class="hidden-xs">
+                            <img src="../plugins/images/admin-text.png" alt="home" class="dark-logo" />
+                            <img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>
+                </div>
+                <!-- /Logo -->
+                <!-- <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href="">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </form>
+                    </li>
+                    <li>
+                        <a class="profile-pic" href="#">
+                            <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+                            <b class="hidden-xs">Steave</b>
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3>
+                        <span class="fa-fw open-close">
+                            <i class="ti-close ti-menu"></i>
+                        </span>
+                        <span class="hide-menu">Navigation</span>
+                    </h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="index.html" class="waves-effect">
+                            <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>สถานการณ์หมอกควัน</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="waves-effect">
+                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>เกี่ยวกับงานวิจัย</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="waves-effect">
+                            <i class="fa fa-table fa-fw" aria-hidden="true"></i>ติดต่อ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title"></div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                        <div class="white-box">
+                            <h4>คำอธิบายสัญลักษณ์</h4>
+                            <br/> &nbsp;&nbsp;&nbsp;
+                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:hotspot_tk">Hotspot &nbsp;&nbsp;&nbsp;
+                            <br/> &nbsp;&nbsp;&nbsp;
+                            <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:village">หมู่บ้าน
+                            <br/> &nbsp;&nbsp;&nbsp;
+                            <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:tambon">ขอบเขตตำบล
+                            <br/> &nbsp;&nbsp;&nbsp;
+                            <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:amphoe">ขอบเขตอำเภอ
+                            <br/> &nbsp;&nbsp;&nbsp;
+                            <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:province">ขอบเขตจังหวัด
+                            <br/>
+                            <h5>คุณภาพอากาศ</h5>
+                            <br/>
+                            <img src="images/aqi1.png" style="width: 20px">&nbsp;ดีมาก
+                            <br/>
+                            <img src="images/aqi2.png" style="width: 20px">&nbsp;ดี
+                            <br/>
+                            <img src="images/aqi3.png" style="width: 20px">&nbsp;ปานกลาง
+                            <br/>
+                            <img src="images/aqi4.png" style="width: 20px">&nbsp;เริ่มมีผลกระทบต่อสุขภาพ
+                            <br/>
+                            <img src="images/aqi5.png" style="width: 20px">&nbsp;มีผลกระทบต่อสุขภาพ
+                            <br/>
+                        </div>
+                        <div class="white-box">
+
+                            <h4>รายละเอียด</h4>
+                            <p></p>
+                            ตำแหน่ง:
+                            <span id="location"></span>
+                            <br/> AQI:
+                            <span id="AQI"></span>
+                            <br/> CO:
+                            <span id="CO"></span>&nbsp;ppm
+                            <br/> NO2:
+                            <span id="NO2"></span>&nbsp;ppb
+                            <br/> O3:
+                            <span id="O3"></span>&nbsp;ppb
+                            <br/> PM10:
+                            <span id="PM10"></span>&nbsp;µg/m³
+                            <br/> PM25:
+                            <span id="PM25"></span>&nbsp;µg/m³
+                            <br/> SO2:
+                            <span id="SO2"></span> &nbsp;ppb
+                            <p>แหล่งที่มาของข้อมูล: สำนักจัดการคุณภาพอากาศและเสียง กรมควบคุมมลพิษ http://air4thai.pcd.go.th</p>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <div class="d-card">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center"> 2018 &copy; สำนักงานป้องกันควบคุมโรคที่ 2 จังหวัดพิษณุโลก </footer>
+        </div>
+    </div>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
