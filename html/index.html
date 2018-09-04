@@ -33,7 +33,8 @@
 
     <link href="css/app.css" id="theme" rel="stylesheet">
 
-    <link href="../plugins/bower_components/leaflet-groupedlayercontrol-gh-pages/dist/leaflet.groupedlayercontrol.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/leaflet-groupedlayercontrol-gh-pages/dist/leaflet.groupedlayercontrol.min.css"
+        rel="stylesheet">
 
     <script src="../plugins/bower_components/leaflet-groupedlayercontrol-gh-pages/dist/leaflet.groupedlayercontrol.min.js"></script>
 
@@ -115,40 +116,42 @@
                     <div class="col-md-3 col-xs-12">
                         <div class="white-box">
                             <h4>คำอธิบายสัญลักษณ์</h4>
-                            <br/> &nbsp;&nbsp;&nbsp;
-                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:hotspot_tk">Hotspot &nbsp;&nbsp;&nbsp;
+                            <br /> &nbsp;&nbsp;&nbsp;
+                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:hotspot_tk">Hotspot
+                            &nbsp;&nbsp;&nbsp;
 
+                            <br /> &nbsp;&nbsp;&nbsp;
+                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:mobile_report">รายงานสถานการณ์
+                            &nbsp;&nbsp;&nbsp;
+                            <br />
+                            <!-- <hr>กลุ่มโรคตาแดง (ปี 55)
                             <br/> &nbsp;&nbsp;&nbsp;
-                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:mobile_report">รายงานสถานการณ์ &nbsp;&nbsp;&nbsp;
-                            <br/>
-                            <hr>กลุ่มโรคตาแดง (ปี 55)
-                            <br/> &nbsp;&nbsp;&nbsp;
-                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:tk_conjet_4326">
+                            <img src="http://cgi.uru.ac.th/gs-hotspot/wms?Service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=25&LAYER=hp:tk_conjet_4326"> -->
                             <hr> &nbsp;&nbsp;&nbsp;
                             <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:village">หมู่บ้าน
-                            <br/> &nbsp;&nbsp;&nbsp;
+                            <br /> &nbsp;&nbsp;&nbsp;
                             <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:tambon">ขอบเขตตำบล
-                            <br/> &nbsp;&nbsp;&nbsp;
+                            <br /> &nbsp;&nbsp;&nbsp;
                             <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:amphoe">ขอบเขตอำเภอ
-                            <br/> &nbsp;&nbsp;&nbsp;
+                            <br /> &nbsp;&nbsp;&nbsp;
                             <img src="http://www3.cgistln.nu.ac.th/geoserver/wms?service=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=gistdata:province">ขอบเขตจังหวัด
-                            <br/>
+                            <br />
 
                         </div>
                         <div class="white-box">
 
                             <h4>ระดับคุณภาพอากาศ</h4>
-                            <br/>
+                            <br />
                             <img src="images/aqi1.png" style="width: 20px">&nbsp;ดีมาก
-                            <br/>
+                            <br />
                             <img src="images/aqi2.png" style="width: 20px">&nbsp;ดี
-                            <br/>
+                            <br />
                             <img src="images/aqi3.png" style="width: 20px">&nbsp;ปานกลาง
-                            <br/>
+                            <br />
                             <img src="images/aqi4.png" style="width: 20px">&nbsp;เริ่มมีผลกระทบต่อสุขภาพ
-                            <br/>
+                            <br />
                             <img src="images/aqi5.png" style="width: 20px">&nbsp;มีผลกระทบต่อสุขภาพ
-                            <br/>
+                            <br />
                             <p></p>
                             ข้อมูลเมื่อ :
                             <span id="dateTime"></span>
@@ -173,8 +176,20 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-xs-12">
-                        <div class="d-card">
-                            <div id="map"></div>
+                        <div class="row">
+                            <div class="d-card">
+                                <div id="map"></div>
+                            </div>
+
+                            <div class="d-card">
+                                <h4>ทิศทางลม และสภาพอากาศ</h4>
+                                <p></p>
+                                <!-- <iframe src="https://www.windy.com/16.681/98.490?15.478,98.490,7,m:d6XaiTk" style="border:none;"
+                                    ></iframe> -->
+                                <iframe height="500" width="100%" src="https://embed.windy.com/embed2.html?lat=16.462&lon=98.597&zoom=8&level=surface&overlay=wind&menu=&message=true&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=13.750&detailLon=100.467&metricWind=default&metricTemp=default&radarRange=-1"
+                                    frameborder="0"></iframe>
+                            </div>
+
                         </div>
                     </div>
                 </div>

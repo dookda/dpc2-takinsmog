@@ -205,11 +205,19 @@
      });
 
 
-     var tk_conjet = L.tileLayer.wms("http://cgi.uru.ac.th/gs-hotspot/ows?", {
+     var tk_conjet = L.tileLayer.wms("http://cgi.uru.ac.th/gs-hotspot/hp/ows?", {
          layers: 'hp:tk_conjet_4326',
          format: 'image/png',
          transparent: true
      });
+
+
+     var imageUrl = 'http://rain.tvis.in.th/output/';
+
+     var radar_phs = L.imageOverlay(imageUrl + 'PHS.png', [
+         [19.094393, 102.475537],
+         [14.411350, 97.983591]
+     ]);
 
 
 
@@ -221,11 +229,11 @@
      //      maxNativeZoom: 8
      //  });
 
-     //  var report = L.tileLayer.wms("http://cgi.uru.ac.th/gs-hotspot/ows?", {
-     //      layers: 'hp:mobile_report',
-     //      format: 'image/png',
-     //      transparent: true
-     //  });
+     var report = L.tileLayer.wms("http://cgi.uru.ac.th/gs-hotspot/ows?", {
+         layers: 'hp:mobile_report',
+         format: 'image/png',
+         transparent: true
+     });
 
      var fmapBaseMaps = {
          'แผนที่ถนน': fgrod,
@@ -241,7 +249,7 @@
              'หมู่บ้าน': vill,
          },
          'Determinants': {
-             'Determinants': vill
+             'สถานีตรวจวัดปริมาณน้ำฝน': radar_phs.addTo(map)
          },
          'Behaviors': {
              'Behaviors': vill
@@ -257,7 +265,7 @@
          },
          'Event-base': {
              'Hotspot': hotspot.addTo(map),
-             //  'รายงานสถานการณ์': report.addTo(map),
+             'รายงานสถานการณ์': report.addTo(map),
          },
      };
 
@@ -297,15 +305,6 @@
                  }
              }
          }).addTo(map);
-         screenLeft
-
-         //  markerReport = L.marker([dat.lat, dat.long], {
-         //          draggable: false,
-         //          icon: ic
-         //      })
-         //      .addTo(map)
-         //      .bindPopup("<h6>สถานีตรวจวัดคุณภาพอากาศ ")
-         //      .openPopup();
      })
 
 
