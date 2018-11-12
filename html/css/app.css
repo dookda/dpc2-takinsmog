@@ -136,3 +136,16 @@ p.lead {
     padding: 15px !important;
     margin-bottom: 30px;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td,
+tr {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+}

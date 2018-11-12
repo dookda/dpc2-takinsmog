@@ -265,7 +265,7 @@
          },
          'Event-base': {
              'Hotspot': hotspot.addTo(map),
-             'รายงานสถานการณ์': report.addTo(map),
+             'รายงานสถานการณ์': report,
          },
      };
 
@@ -380,8 +380,8 @@
                  "<br/><span id='kanit13'>SO2:</span> " + dat.LastUpdate.SO2.value +
                  "<br/>แหล่งที่มาของข้อมูล: สำนักจัดการคุณภาพอากาศและเสียง กรมควบคุมมลพิษ <br/>http://air4thai.pcd.go.th"
              )
-         //  .openPopup();
-         //  map.setView(L.latLng(dat.lat, dat.long), 18);
+          .openPopup();
+          map.setView(L.latLng(dat.lat, dat.long), 18);
      })
 
      var centroid = [
@@ -456,7 +456,7 @@
      var apiKey2 = 'e2208e48ec6c47adb1d9bce89b3d0e52';
 
      function loadAQI(lat, lon, tam, amp) {
-         var json = 'https://api.breezometer.com/baqi/?lat=' + lat + '&lon=' + lon + '&key=e2208e48ec6c47adb1d9bce89b3d0e52';
+         var json = 'https://api.breezometer.com/baqi/?lat=' + lat + '&lon=' + lon + '&key=19e9831172e8429d8234c562781f76c5';
 
          $.getJSON(json, (dat) => {
              $('#dateTime').text(dat.datetime);
